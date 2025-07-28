@@ -1,8 +1,10 @@
 import Image from "next/image";
+import FavoriteButton from "./FavoriteButton";
 
 export default function DetailView({ artPiece }) {
   return (
     <>
+      <FavoriteButton />
       <Image
         src={artPiece.imageSource}
         width={400}
