@@ -1,5 +1,7 @@
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
+import CommentDisplay from "./CommentDisplay";
+import CommentForm from "./CommentForm";
 
 export default function DetailView({ artPiece }) {
   return (
@@ -15,6 +17,8 @@ export default function DetailView({ artPiece }) {
       <p>{artPiece.name}</p>
       <p>{artPiece.year}</p>
       <p>{artPiece.genre}</p>
+      <CommentDisplay />
+      <CommentForm />
     </>
   );
 }
