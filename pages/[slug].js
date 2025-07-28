@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
 import useSWR from "swr";
+import DetailView from "@/components/DetailView";
 
 export default function Detail() {
   const router = useRouter();
@@ -21,16 +21,7 @@ export default function Detail() {
   return (
     <>
       <Link href="/Gallery">back</Link>
-      <Image
-        src={artPiece.imageSource}
-        width={400}
-        height={400}
-        alt={artPiece.name}
-      />
-      <h2>{artPiece.artist}</h2>
-      <p>{artPiece.name}</p>
-      <p>{artPiece.year}</p>
-      <p>{artPiece.genre}</p>
+      <DetailView artPiece={artPiece} />
     </>
   );
 }
