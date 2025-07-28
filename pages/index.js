@@ -1,4 +1,4 @@
-import ArtList from "@/components/artlist";
+import ArtList from "../components/ArtList";
 
 export default function HomePage() {
   return (
