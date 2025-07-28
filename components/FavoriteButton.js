@@ -13,6 +13,7 @@ export default function FavoriteButton({ slug }) {
       //remove favorite
       const updatedFavorites = favorites.filter((zell) => zell !== slug);
       setIsLike(false);
+      setFavorites(updatedFavorites);
     } else {
       //add favorite
       setIsLike(true);
