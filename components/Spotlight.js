@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
@@ -20,7 +21,7 @@ export default function Spotlight() {
   }
   const randomArt = getRandomArtPiece();
   return (
-    <>
+    <Link href={randomArt.slug}>
       <Image
         src={randomArt.imageSource}
         width={400}
@@ -28,6 +29,6 @@ export default function Spotlight() {
         alt={randomArt.name}
       />
       <p>{randomArt.artist}</p>
-    </>
+    </Link>
   );
 }
