@@ -1,6 +1,7 @@
 import Image from "next/image";
 import useSWR from "swr";
 import Link from "next/link";
+import FavoriteButton from "./FavoriteButton";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -22,6 +23,7 @@ export default function ArtPiecePreview() {
     <ul>
       {data.map((datum) => (
         <li key={datum.name}>
+          <FavoriteButton />
           <Link href={datum.slug}>
             <Image
               src={datum.imageSource}
