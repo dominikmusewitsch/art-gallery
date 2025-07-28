@@ -5,7 +5,7 @@ import FavoriteButton from "./FavoriteButton";
 export default function ArtPiecePreview({ artPiece }) {
   return (
     <article key={artPiece.name}>
-      <FavoriteButton />
+      <FavoriteButton slug={artPiece.slug} />
       <Link href={artPiece.slug}>
         <Image
           src={artPiece.imageSource}

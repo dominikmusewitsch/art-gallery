@@ -1,10 +1,24 @@
 import { useState } from "react";
+import useLocalStorage from "use-local-storage-state";
 
-export default function FavoriteButton() {
-  const [isLike, setIsLike] = useState(false);
+export default function FavoriteButton({ slug }) {
+  const [favorites, setFavorites] = useLocalStorage("favorites", {
+    defaultValue: [],
+  });
+
+  const [isLike, setIsLike] = useState(favorites.includes(slug));
 
   function handleToggleLike() {
-    setIsLike(!isLike);
+    if (isLike) {
+      //remove favorite
+      const updatedFavorites = favorites.filter((zell) => zell !== slug);
+      setIsLike(false);
+    } else {
+      //add favorite
+      setIsLike(true);
+      const updatedFavorites = [slug, ...favorites];
+      setFavorites(updatedFavorites);
+    }
   }
 
   return (

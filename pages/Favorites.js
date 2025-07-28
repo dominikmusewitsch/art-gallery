@@ -22,11 +22,18 @@ export default function Favorites() {
     favorites.includes(artPiece.slug)
   );
 
-if (favoriteArtPieces.lenght === 0)return <p>Nutze das Herz um deine Liste zu füllen</p>
+  if (favoriteArtPieces.length === 0)
+    return (
+      <>
+        <h2>Favorites</h2>
+        <p>Nutze das Herz um deine Liste zu füllen</p>
+      </>
+    );
 
   console.log(favoriteArtPieces);
   return (
     <>
+      <h2>Favorites</h2>
       <ArtList artPieces={favoriteArtPieces}></ArtList>
     </>
   );

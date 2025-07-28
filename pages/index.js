@@ -1,6 +1,4 @@
 import Spotlight from "@/components/Spotlight";
-import Navigation from "@/components/Navigation";
-import FavoriteButton from "@/components/FavoriteButton";
 
 export default function HomePage() {
   return (

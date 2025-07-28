@@ -4,7 +4,7 @@ import FavoriteButton from "./FavoriteButton";
 export default function DetailView({ artPiece }) {
   return (
     <>
-      <FavoriteButton />
+      <FavoriteButton slug={artPiece.slug}/>
       <Image
         src={artPiece.imageSource}
         width={400}
