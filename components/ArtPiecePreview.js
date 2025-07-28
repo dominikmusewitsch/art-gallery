@@ -1,5 +1,6 @@
 import Image from "next/image";
 import useSWR from "swr";
+import Link from "next/link";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -21,14 +22,16 @@ export default function ArtPiecePreview() {
     <ul>
       {data.map((datum) => (
         <li key={datum.name}>
-          <Image
-            src={datum.imageSource}
-            width={300}
-            height={300}
-            alt={datum.name}
-          />
-          <h2>{datum.name}</h2>
-          <p>{datum.artist}</p>
+          <Link href={datum.slug}>
+            <Image
+              src={datum.imageSource}
+              width={300}
+              height={300}
+              alt={datum.name}
+            />
+            <h2>{datum.name}</h2>
+            <p>{datum.artist}</p>
+          </Link>
         </li>
       ))}
     </ul>
