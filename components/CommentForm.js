@@ -5,10 +5,16 @@ export default function CommentForm({ onAddComment }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (!text.trim())
-      return; /* verhindert dass man leere Kommentare posten kann */
-    onAddComment(text.trim()); /* übergibt Text an DetailView */
-    setText("");
+    const form = event.target; // das gesamte <form>-Element
+    const formElements = form.elements; // enthält alle Input-Felder
+
+    const inputValue = formElements.comment.value.trim(); // "comment" ist das id/name-Attribut des Inputs
+
+    if (!inputValue) return; // keine leeren Kommentare
+
+    onAddComment(inputValue); // Übergibt Text an DetailView
+
+    form.reset();
   }
 
   return (
