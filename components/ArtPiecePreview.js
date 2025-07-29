@@ -6,7 +6,7 @@ export default function ArtPiecePreview({ artPiece }) {
   return (
     <article key={artPiece.name}>
       <FavoriteButton slug={artPiece.slug} />
-      <Link href={artPiece.slug}>
+      <Link href={`/gallery/${artPiece.slug}`}>
         <Image
           src={artPiece.imageSource}
           width={300}

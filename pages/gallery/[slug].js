@@ -20,7 +20,7 @@ export default function Detail() {
 
   return (
     <>
-      <Link href="/Gallery">back</Link>
+      <Link href="/gallery">back</Link>
       <DetailView artPiece={artPiece} />
     </>
   );
