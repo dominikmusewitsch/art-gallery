@@ -3,9 +3,12 @@ import FavoriteButton from "./FavoriteButton";
 import CommentDisplay from "./CommentDisplay";
 import CommentForm from "./CommentForm";
 import { useState } from "react";
+import useLocalStorage from "use-local-storage-state";
 
 export default function DetailView({ artPiece }) {
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useLocalStorage("comments", {
+    defaultValue: [],
+  });
 
   // Neue Kommentare hinzufügen
   function handleAddComment(text) {
@@ -23,7 +26,7 @@ export default function DetailView({ artPiece }) {
 
   return (
     <>
-      <FavoriteButton slug={artPiece.slug}/>
+      <FavoriteButton slug={artPiece.slug} />
       <Image
         src={artPiece.imageSource}
         width={400}
