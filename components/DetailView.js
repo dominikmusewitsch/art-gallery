@@ -26,13 +26,16 @@ export default function DetailView({ artPiece }) {
 
   return (
     <>
-      <FavoriteButton slug={artPiece.slug} />
-      <Image
-        src={artPiece.imageSource}
-        width={400}
-        height={400}
-        alt={artPiece.name}
-      />
+      <div style={{ position: "relative" }}>
+        <FavoriteButton slug={artPiece.slug} />
+        <Image
+          src={artPiece.imageSource}
+          layout="responsive"
+          width={3}
+          height={4}
+          alt={artPiece.name}
+        />
+      </div>
       <ColorPalette artPiece={artPiece} />
       <h2>{artPiece.artist}</h2>
       <p>{artPiece.name}</p>
