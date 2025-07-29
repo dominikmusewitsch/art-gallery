@@ -2,8 +2,8 @@ import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
 import CommentDisplay from "./CommentDisplay";
 import CommentForm from "./CommentForm";
-import { useState } from "react";
 import useLocalStorage from "use-local-storage-state";
+import ColorPalette from "./ColorPalette";
 
 export default function DetailView({ artPiece }) {
   const [comments, setComments] = useLocalStorage("comments", {
@@ -33,6 +33,7 @@ export default function DetailView({ artPiece }) {
         height={400}
         alt={artPiece.name}
       />
+      <ColorPalette artPiece={artPiece} />
       <h2>{artPiece.artist}</h2>
       <p>{artPiece.name}</p>
       <p>{artPiece.year}</p>
