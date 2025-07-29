@@ -1,20 +1,35 @@
+import styled from "styled-components";
+
 export default function ColorPalette({ artPiece }) {
   console.log(artPiece.colors);
 
   return (
-    <ul>
+    <ListWrapper>
       {artPiece.colors.map((color, index) => (
-        <li key={index}>
-          <div
+        <li key={index} style={{ flex: 1 }}>
+          <ColorBlock
             style={{
               background: color,
-              height: "20px",
-              width: "20px",
-              borderRadius: "50%",
+              // borderRadius: "50%",
             }}
-          ></div>
+          ></ColorBlock>
         </li>
       ))}
-    </ul>
+    </ListWrapper>
   );
 }
+
+const ListWrapper = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ColorBlock = styled.div`
+  width: 100%;
+  height: 20px;
+`;

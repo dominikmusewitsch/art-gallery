@@ -23,7 +23,20 @@ export default function FavoriteButton({ slug }) {
   }
 
   return (
-    <button type="button" onClick={handleToggleLike}>
+    <button
+      type="button"
+      onClick={handleToggleLike}
+      style={{
+        position: "absolute",
+        top: "8px",
+        right: "8px",
+        background: "white",
+        borderRadius: "50%",
+        padding: "4px",
+        cursor: "pointer",
+        zIndex: 2,
+      }}
+    >
       {isLike === false ? "🤍" : "❤️"}
     </button>
   );
