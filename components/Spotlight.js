@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
+import ArtPiecePreview from "./ArtPiecePreview";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -20,15 +21,5 @@ export default function Spotlight() {
     return data[randomArrayIndex];
   }
   const randomArt = getRandomArtPiece();
-  return (
-    <Link href={randomArt.slug}>
-      <Image
-        src={randomArt.imageSource}
-        width={400}
-        height={400}
-        alt={randomArt.name}
-      />
-      <p>{randomArt.artist}</p>
-    </Link>
-  );
+  return <ArtPiecePreview artPiece={randomArt}></ArtPiecePreview>;
 }
