@@ -12,7 +12,6 @@ export default function Gallery() {
   if (isLoading) return <p>Lade...</p>;
   return (
     <>
-      <h1>Art Gallery</h1>
       <ArtList artPieces={data} />
     </>
   );

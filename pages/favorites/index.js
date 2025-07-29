@@ -33,7 +33,6 @@ export default function Favorites() {
   console.log(favoriteArtPieces);
   return (
     <>
-      <h2>Favorites</h2>
       <ArtList artPieces={favoriteArtPieces}></ArtList>
     </>
   );

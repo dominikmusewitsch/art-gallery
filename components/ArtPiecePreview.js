@@ -1,23 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
+import styled from "styled-components";
 
 export default function ArtPiecePreview({ artPiece }) {
   return (
-    <article key={artPiece.name}>
-      <div style={{ position: "relative", width: "300px", height: "400px" }}>
+    <ArtContainer key={artPiece.name}>
+      <div style={{ position: "relative" }}>
         <FavoriteButton slug={artPiece.slug} />
         <Link href={`/gallery/${artPiece.slug}`}>
           <Image
             src={artPiece.imageSource}
-            width={300}
-            height={400}
             alt={artPiece.name}
+            width={300}
+            height={0}
+            style={{ height: "auto", width: "100%", objectFit: "contain" }}
           />
         </Link>
       </div>
-      <h2>{artPiece.name}</h2>
-      <p>{artPiece.artist}</p>
-    </article>
+      <ArtTitle>{artPiece.name}</ArtTitle>
+      <ArtistName>by {artPiece.artist}</ArtistName>
+    </ArtContainer>
   );
 }
+
+const ArtContainer = styled.article`
+  margin-bottom: 80px;
+  text-align: center;
+  color: grey;
+`;
+
+const ArtTitle = styled.h2`
+  margin-bottom: 8px;
+  margin-top: 30px;
+`;
+
+const ArtistName = styled.p`
+  margin-top: 0;
+`;
