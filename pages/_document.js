@@ -31,7 +31,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Navigation />
         </body>
       </Html>
     );

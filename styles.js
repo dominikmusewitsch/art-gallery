@@ -11,5 +11,6 @@ export default createGlobalStyle`
     margin: 0;
     font-family: system-ui;
     padding: 3em;
+    padding-bottom: 60px
   }
 `;

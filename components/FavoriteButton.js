@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import useLocalStorage from "use-local-storage-state";
 
 export default function FavoriteButton({ slug }) {
@@ -23,13 +24,14 @@ export default function FavoriteButton({ slug }) {
   }
 
   return (
-    <button
+    <HerzButton
       type="button"
       onClick={handleToggleLike}
       style={{
         position: "absolute",
-        top: "8px",
-        right: "8px",
+        bottom: "-20px",
+        transform: "translateX(-50%)",
+        left: "50%",
         background: "white",
         borderRadius: "50%",
         padding: "4px",
@@ -38,6 +40,10 @@ export default function FavoriteButton({ slug }) {
       }}
     >
       {isLike === false ? "🤍" : "❤️"}
-    </button>
+    </HerzButton>
   );
 }
+
+const HerzButton = styled.button`
+  font-size: 2rem;
+`;

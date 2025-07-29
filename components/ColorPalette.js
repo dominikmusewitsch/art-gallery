@@ -10,7 +10,6 @@ export default function ColorPalette({ artPiece }) {
           <ColorBlock
             style={{
               background: color,
-              // borderRadius: "50%",
             }}
           ></ColorBlock>
         </li>
