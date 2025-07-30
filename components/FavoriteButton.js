@@ -29,7 +29,7 @@ export default function FavoriteButton({ slug }) {
       onClick={handleToggleLike}
       style={{
         position: "absolute",
-        bottom: "-20px",
+        bottom: "-15px",
         transform: "translateX(-50%)",
         left: "50%",
         background: "white",
@@ -45,5 +45,5 @@ export default function FavoriteButton({ slug }) {
 }
 
 const HerzButton = styled.button`
-  font-size: 2rem;
+  font-size: 1.25rem;
 `;
