@@ -14,19 +14,22 @@ export default function CommentForm({ onAddComment }) {
 
     onAddComment(inputValue); // Übergibt Text an DetailView
 
+    setText("");
     form.reset();
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="comment">Add comment:</label>
-      <input
+      <textarea
         id="comment"
         type="text"
         value={text}
+        placeholder="Write your comment here..."
+        rows={4}
         onChange={(event) => setText(event.target.value)}
         required
-      ></input>
+      ></textarea>
       <button type="submit">Send</button>
     </form>
   );
