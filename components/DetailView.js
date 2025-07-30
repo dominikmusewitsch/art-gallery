@@ -70,11 +70,13 @@ const ColorPaletteWrapper = styled.div`
 const InfoWrapper = styled.div`
   max-width: 600px;
   margin: 60px auto 80px auto;
+  color: #444;
 `;
 
 const CommentWrapper = styled.div`
   max-width: 600px;
   margin: 60px auto 60px auto;
+  color: #444;
 `;
 
 const CommentHeader = styled.h3`
