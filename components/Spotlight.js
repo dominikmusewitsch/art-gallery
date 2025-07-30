@@ -45,7 +45,7 @@ const ArtContainer = styled.article`
   max-width: 600px;
   margin: 0 auto 80px auto;
   text-align: center;
-  color: grey;
+  color: #444;
 `;
 
 const ArtistName = styled.p`

@@ -14,4 +14,5 @@ const Headline = styled.h1`
   font-size: 36px;
   margin-top: 0;
   margin-bottom: 50px;
+  font-family: "Rock 3D", serif;
 `;

@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import ArtList from "@/components/ArtList";
 import useLocalStorage from "use-local-storage-state";
+import styled from "styled-components";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -25,8 +26,7 @@ export default function Favorites() {
   if (favoriteArtPieces.length === 0)
     return (
       <>
-        <h2>Favorites</h2>
-        <p>Nutze das Herz um deine Liste zu füllen</p>
+        <EmptyList>Use your ❤️ to fill the list</EmptyList>
       </>
     );
 
@@ -37,3 +37,7 @@ export default function Favorites() {
     </>
   );
 }
+const EmptyList = styled.p`
+  text-align: center;
+  color: #444;
+`;

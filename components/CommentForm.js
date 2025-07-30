@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 export default function CommentForm({ onAddComment }) {
   const [text, setText] = useState("");
@@ -19,18 +20,40 @@ export default function CommentForm({ onAddComment }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="comment">Add comment:</label>
+    <StyledFormWrapper onSubmit={handleSubmit}>
+      <label htmlFor="comment"></label>
       <textarea
         id="comment"
         type="text"
         value={text}
-        placeholder="Write your comment here..."
+        placeholder="Add your comment here..."
         rows={4}
         onChange={(event) => setText(event.target.value)}
         required
       ></textarea>
-      <button type="submit">Send</button>
-    </form>
+      <StyledSubmitButton type="submit">Send</StyledSubmitButton>
+    </StyledFormWrapper>
   );
 }
+
+const StyledFormWrapper = styled.form`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 30px auto 0 auto;
+  gap: 8px;
+`;
+
+const StyledSubmitButton = styled.button`
+  background-color: grey;
+  color: white;
+  border-style: none;
+  padding: 8px 16px;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  min-width: 120px;
+
+
+`;
