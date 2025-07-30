@@ -2,22 +2,22 @@ import { render, screen } from "@testing-library/react";
 import ArtPiecePreview from "./ArtPiecePreview";
 import "@testing-library/jest-dom";
 
-// ✅ Mock für use-local-storage-state (wird im FavoriteButton verwendet)
+// ✅ Mock für use-local-storage-state (z. B. in FavoriteButton verwendet)
 jest.mock("use-local-storage-state", () => () => [[], jest.fn()]);
 
 // ✅ Mock für next/image – korrekt mit displayName und alt-Prop
 jest.mock("next/image", () => {
-  const MockImage = (props) => {
+  const MockImage = function MockImage(props) {
     return <img {...props} alt={props.alt || "mocked image"} />;
   };
-  MockImage.displayName = "MockImage";
   return MockImage;
 });
 
-// ✅ FavoriteButton isolieren für Test (optional, aber empfohlen)
+// ✅ Mock für FavoriteButton – vermeidet Abhängigkeiten
 jest.mock("./FavoriteButton", () => {
-  const MockFavoriteButton = () => <div data-testid="favorite-button" />;
-  MockFavoriteButton.displayName = "MockFavoriteButton";
+  const MockFavoriteButton = function MockFavoriteButton() {
+    return <div data-testid="favorite-button" />;
+  };
   return MockFavoriteButton;
 });
 
