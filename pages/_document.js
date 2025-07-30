@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import Navigation from "@/components/Navigation";
+
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {

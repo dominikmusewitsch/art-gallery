@@ -27,23 +27,24 @@ export default function FavoriteButton({ slug }) {
     <HerzButton
       type="button"
       onClick={handleToggleLike}
-      style={{
-        position: "absolute",
-        bottom: "-15px",
-        transform: "translateX(-50%)",
-        left: "50%",
-        background: "white",
-        borderRadius: "50%",
-        padding: "4px",
-        cursor: "pointer",
-        zIndex: 2,
-      }}
+      style={{ position: "absolute" }}
     >
-      {isLike === false ? "🤍" : "❤️"}
+      {isLike === false ? "🩶" : "❤️"}
     </HerzButton>
   );
 }
 
 const HerzButton = styled.button`
   font-size: 1.25rem;
+  border-style: none;
+  width: 2em;
+  height: 2em;
+  bottom: -15px;
+  transform: translateX(-50%);
+  left: 50%;
+  background: white;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 2;
 `;

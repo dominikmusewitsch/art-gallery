@@ -34,7 +34,7 @@ const ArtContainer = styled.article`
 
 const ArtTitle = styled.h2`
   margin-bottom: 8px;
-  margin-top: 30px;
+  margin-top: 24px;
 `;
 
 const ArtistName = styled.p`

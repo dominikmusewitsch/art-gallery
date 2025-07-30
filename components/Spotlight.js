@@ -49,5 +49,5 @@ const ArtContainer = styled.article`
 `;
 
 const ArtistName = styled.p`
-  margin-top: 30px;
+  margin-top: 24px;
 `;
