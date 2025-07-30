@@ -40,14 +40,17 @@ export default function DetailView({ artPiece }) {
       <ColorPaletteWrapper>
         <ColorPalette artPiece={artPiece} />
       </ColorPaletteWrapper>
-      <h2>{artPiece.artist}</h2>
-      <p>{artPiece.name}</p>
-      <p>{artPiece.year}</p>
-      <p>{artPiece.genre}</p>
-
-      <h3>Comments</h3>
-      <CommentDisplay comments={pieceComments} />
-      <CommentForm onAddComment={handleAddComment} />
+      <InfoWrapper>
+        <h2>{artPiece.artist}</h2>
+        <p>» {artPiece.name} « </p>
+        <p>Year: {artPiece.year}</p>
+        <p>Genre: {artPiece.genre}</p>
+      </InfoWrapper>
+      <CommentWrapper>
+        <CommentHeader>Comments</CommentHeader>
+        <CommentDisplay comments={pieceComments} />
+        <CommentForm onAddComment={handleAddComment} />
+      </CommentWrapper>
     </>
   );
 }
@@ -62,4 +65,18 @@ const ArtContainer = styled.article`
 const ColorPaletteWrapper = styled.div`
   max-width: 600px;
   margin: 0 auto 40px auto;
+`;
+
+const InfoWrapper = styled.div`
+  max-width: 600px;
+  margin: 60px auto 80px auto;
+`;
+
+const CommentWrapper = styled.div`
+  max-width: 600px;
+  margin: 60px auto 60px auto;
+`;
+
+const CommentHeader = styled.h3`
+  text-align: right;
 `;
