@@ -4,6 +4,7 @@ import CommentDisplay from "./CommentDisplay";
 import CommentForm from "./CommentForm";
 import useLocalStorage from "use-local-storage-state";
 import ColorPalette from "./ColorPalette";
+import styled from "styled-components";
 
 export default function DetailView({ artPiece }) {
   const [comments, setComments] = useLocalStorage("comments", {
@@ -26,7 +27,7 @@ export default function DetailView({ artPiece }) {
 
   return (
     <>
-      <div style={{ position: "relative" }}>
+      <ArtContainer style={{ position: "relative" }}>
         <FavoriteButton slug={artPiece.slug} />
         <Image
           src={artPiece.imageSource}
@@ -35,8 +36,10 @@ export default function DetailView({ artPiece }) {
           height={4}
           alt={artPiece.name}
         />
-      </div>
-      <ColorPalette artPiece={artPiece} />
+      </ArtContainer>
+      <ColorPaletteWrapper>
+        <ColorPalette artPiece={artPiece} />
+      </ColorPaletteWrapper>
       <h2>{artPiece.artist}</h2>
       <p>{artPiece.name}</p>
       <p>{artPiece.year}</p>
@@ -48,3 +51,15 @@ export default function DetailView({ artPiece }) {
     </>
   );
 }
+
+const ArtContainer = styled.article`
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  color: grey;
+`;
+
+const ColorPaletteWrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+`;

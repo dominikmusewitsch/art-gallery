@@ -42,7 +42,8 @@ export default function Spotlight() {
 }
 
 const ArtContainer = styled.article`
-  margin-bottom: 80px;
+  max-width: 600px;
+  margin: 0 auto 80px auto;
   text-align: center;
   color: grey;
 `;
