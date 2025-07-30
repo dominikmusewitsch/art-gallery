@@ -13,6 +13,6 @@ const Headline = styled.h1`
   color: grey;
   font-size: 36px;
   margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
   font-family: "Rock 3D", serif;
 `;
