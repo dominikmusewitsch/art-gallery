@@ -2,15 +2,19 @@ import { render, screen } from "@testing-library/react";
 import ArtPiecePreview from "./ArtPiecePreview";
 import "@testing-library/jest-dom";
 
-// ✅ Mock für use-local-storage-state (z. B. im FavoriteButton)
+// ✅ Mock für use-local-storage-state (wird im FavoriteButton verwendet)
 jest.mock("use-local-storage-state", () => () => [[], jest.fn()]);
 
-// ✅ Mock für next/image – vermeidet Endlosschleifen
-jest.mock("next/image", () => (props) => {
-  return <img {...props} />;
+// ✅ Mock für next/image – korrekt mit displayName und alt-Prop
+jest.mock("next/image", () => {
+  const MockImage = (props) => {
+    return <img {...props} alt={props.alt || "mocked image"} />;
+  };
+  MockImage.displayName = "MockImage";
+  return MockImage;
 });
 
-// ✅ Optional: FavoriteButton isolieren
+// ✅ FavoriteButton isolieren für Test (optional, aber empfohlen)
 jest.mock("./FavoriteButton", () => {
   const MockFavoriteButton = () => <div data-testid="favorite-button" />;
   MockFavoriteButton.displayName = "MockFavoriteButton";
@@ -28,14 +32,12 @@ describe("ArtPiecePreview", () => {
 
   it("renders the art piece name and artist", () => {
     render(<ArtPiecePreview artPiece={dummyArtPiece} />);
-
     expect(screen.getByText("The Scream")).toBeInTheDocument();
     expect(screen.getByText("by Edvard Munch")).toBeInTheDocument();
   });
 
   it("renders the image with correct alt text", () => {
     render(<ArtPiecePreview artPiece={dummyArtPiece} />);
-
     const image = screen.getByAltText("The Scream");
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute("src", "/the-scream.jpg");
