@@ -64,21 +64,6 @@ const LinkItem = styled.li`
     border-right: none;
   }
 
-  /* a {
-    display: grid;
-    place-content: center;
-    padding: 0.9rem 0 0.7rem;
-    color: #e0e0e0;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-
-    &:hover,
-    &:focus,
-    &.active {
-      background-color: var(--navbar-hover-color);
-      cursor: pointer;
-    }
-  } */
 `;
 const StyledNavLink = styled(Link)`
   display: grid;
