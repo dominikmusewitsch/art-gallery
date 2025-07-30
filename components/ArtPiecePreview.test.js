@@ -1,3 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/display-name */
+
 import { render, screen } from "@testing-library/react";
 import ArtPiecePreview from "./ArtPiecePreview";
 import "@testing-library/jest-dom";
