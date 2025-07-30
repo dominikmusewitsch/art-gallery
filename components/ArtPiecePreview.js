@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default function ArtPiecePreview({ artPiece }) {
   console.log(artPiece);
   return (
-    <ArtContainer key={artPiece.name}>
+    <ArtContainer key={artPiece.name} data-testid="art-piece-preview">
       <div style={{ position: "relative" }}>
         <FavoriteButton slug={artPiece.slug} />
         <Link href={`/gallery/${artPiece.slug}`}>
