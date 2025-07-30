@@ -1,30 +1,27 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/display-name */
+
 import { render, screen } from "@testing-library/react";
 import ArtPiecePreview from "./ArtPiecePreview";
 import "@testing-library/jest-dom";
-import Image from "next/image";
 
-// ⛔️ verhindert Fehler durch use-local-storage-state im FavoriteButton
+// ✅ Mock für use-local-storage-state (z. B. in FavoriteButton verwendet)
 jest.mock("use-local-storage-state", () => () => [[], jest.fn()]);
 
-// ⛔️ verhindert Probleme durch <Image> von Next.js
+// ✅ Mock für next/image – korrekt mit displayName und alt-Prop
 jest.mock("next/image", () => {
-  const MockImage = (props) => {
-    return (
-      <Image
-        {...props}
-        src={props.src || "/mock.jpg"}
-        alt={props.alt || "mocked image"}
-      />
-    );
+  const MockImage = function MockImage(props) {
+    return <img {...props} alt={props.alt || "mocked image"} />;
   };
-  MockImage.displayName = "MockNextImage";
   return MockImage;
 });
 
-// ⛔️ optional: vermeidet Fehler, falls FavoriteButton weitere Abhängigkeiten hat
+// ✅ Mock für FavoriteButton – vermeidet Abhängigkeiten
 jest.mock("./FavoriteButton", () => {
-  const MockFavoriteButton = () => <div data-testid="favorite-button" />;
-  MockFavoriteButton.displayName = "MockFavoriteButton";
+  const MockFavoriteButton = function MockFavoriteButton() {
+    return <div data-testid="favorite-button" />;
+  };
   return MockFavoriteButton;
 });
 
@@ -39,14 +36,12 @@ describe("ArtPiecePreview", () => {
 
   it("renders the art piece name and artist", () => {
     render(<ArtPiecePreview artPiece={dummyArtPiece} />);
-
     expect(screen.getByText("The Scream")).toBeInTheDocument();
     expect(screen.getByText("by Edvard Munch")).toBeInTheDocument();
   });
 
   it("renders the image with correct alt text", () => {
     render(<ArtPiecePreview artPiece={dummyArtPiece} />);
-
     const image = screen.getByAltText("The Scream");
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute("src", "/the-scream.jpg");
