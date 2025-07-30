@@ -4,6 +4,7 @@ import FavoriteButton from "./FavoriteButton";
 import styled from "styled-components";
 
 export default function ArtPiecePreview({ artPiece }) {
+  console.log(artPiece);
   return (
     <ArtContainer key={artPiece.name}>
       <div style={{ position: "relative" }}>
@@ -25,7 +26,8 @@ export default function ArtPiecePreview({ artPiece }) {
 }
 
 const ArtContainer = styled.article`
-  margin-bottom: 80px;
+  max-width: 600px;
+  margin: 0 auto 80px auto;
   text-align: center;
   color: grey;
 `;
