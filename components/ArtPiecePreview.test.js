@@ -1,20 +1,32 @@
 import { render, screen } from "@testing-library/react";
 import ArtPiecePreview from "./ArtPiecePreview";
 import "@testing-library/jest-dom";
+import Image from "next/image";
 
 // ⛔️ verhindert Fehler durch use-local-storage-state im FavoriteButton
 jest.mock("use-local-storage-state", () => () => [[], jest.fn()]);
 
 // ⛔️ verhindert Probleme durch <Image> von Next.js
-jest.mock("next/image", () => (props) => {
-  // props.src ist der Bildpfad
-  return <img {...props} alt={props.alt || "mocked image"} />;
+jest.mock("next/image", () => {
+  const MockImage = (props) => {
+    return (
+      <Image
+        {...props}
+        src={props.src || "/mock.jpg"}
+        alt={props.alt || "mocked image"}
+      />
+    );
+  };
+  MockImage.displayName = "MockNextImage";
+  return MockImage;
 });
 
 // ⛔️ optional: vermeidet Fehler, falls FavoriteButton weitere Abhängigkeiten hat
-jest.mock("./FavoriteButton", () => () => (
-  <div data-testid="favorite-button" />
-));
+jest.mock("./FavoriteButton", () => {
+  const MockFavoriteButton = () => <div data-testid="favorite-button" />;
+  MockFavoriteButton.displayName = "MockFavoriteButton";
+  return MockFavoriteButton;
+});
 
 describe("ArtPiecePreview", () => {
   const dummyArtPiece = {
