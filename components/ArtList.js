@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import ArtPiecePreview from "./ArtPiecePreview";
 
-export default function ArtList({ artPieces }) {
+export default function ArtList({ data }) {
   return (
     <ArtListWrapper>
-      {artPieces.map((datum) => (
+      {data.map((datum) => (
         <li key={datum.name}>
-          <ArtPiecePreview artPiece={datum}></ArtPiecePreview>
+          <ArtPiecePreview datum={datum}></ArtPiecePreview>
         </li>
       ))}
     </ArtListWrapper>
@@ -16,5 +16,4 @@ const ArtListWrapper = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  
 `;
