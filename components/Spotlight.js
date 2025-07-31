@@ -1,20 +1,20 @@
-import useSWR from "swr";
+// import useSWR from "swr";
 import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
 import Image from "next/image";
 import styled from "styled-components";
 
-const fetcher = (url) => fetch(url).then((response) => response.json());
+// const fetcher = (url) => fetch(url).then((response) => response.json());
 
-export default function Spotlight() {
-  const {
-    data: data,
-    error,
-    isLoading,
-  } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
+export default function Spotlight({ data }) {
+  // const {
+  //   data: data,
+  //   error,
+  //   isLoading,
+  // } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
-  if (error) return <p>Fehler beim Laden der Daten.</p>;
-  if (isLoading) return <p>Lade...</p>;
+  // if (error) return <p>Fehler beim Laden der Daten.</p>;
+  // if (isLoading) return <p>Lade...</p>;
 
   function getRandomArtPiece() {
     const randomNumber = Math.random() * data.length;

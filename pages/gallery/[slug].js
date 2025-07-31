@@ -1,20 +1,20 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import useSWR from "swr";
+// import useSWR from "swr";
 import DetailView from "@/components/DetailView";
 import { IconArrowLeft } from "@tabler/icons-react";
 import styled from "styled-components";
 
-export default function Detail() {
+export default function Detail({ data }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const { data, isLoading, error } = useSWR(
-    "https://example-apis.vercel.app/api/art"
-  );
+  // const { data, isLoading, error } = useSWR(
+  //   "https://example-apis.vercel.app/api/art"
+  // );
 
-  if (isLoading) return <p>Lade...</p>;
-  if (error) return <p>Fehler!</p>;
+  // if (isLoading) return <p>Lade...</p>;
+  // if (error) return <p>Fehler!</p>;
 
   const artPiece = data.find((piece) => piece.slug === slug);
 

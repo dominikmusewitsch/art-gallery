@@ -1,23 +1,23 @@
-import useSWR from "swr";
+// import useSWR from "swr";
 import ArtList from "@/components/ArtList";
 import useLocalStorage from "use-local-storage-state";
 import styled from "styled-components";
 
-const fetcher = (url) => fetch(url).then((response) => response.json());
+// const fetcher = (url) => fetch(url).then((response) => response.json());
 
-export default function Favorites() {
-  const {
-    data: data,
-    error,
-    isLoading,
-  } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
+export default function Favorites({ data }) {
+  // const {
+  //   data: data,
+  //   error,
+  //   isLoading,
+  // } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
   const [favorites, setFavorites] = useLocalStorage("favorites", {
     defaultValue: [],
   });
 
-  if (error) return <p>Fehler beim Laden der Daten.</p>;
-  if (isLoading) return <p>Lade...</p>;
+  // if (error) return <p>Fehler beim Laden der Daten.</p>;
+  // if (isLoading) return <p>Lade...</p>;
 
   const favoriteArtPieces = data.filter((artPiece) =>
     favorites.includes(artPiece.slug)
@@ -37,7 +37,7 @@ export default function Favorites() {
   console.log(favoriteArtPieces);
   return (
     <>
-      <ArtList artPieces={favoriteArtPieces}></ArtList>
+      <ArtList data={favoriteArtPieces}></ArtList>
     </>
   );
 }
