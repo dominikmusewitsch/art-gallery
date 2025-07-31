@@ -26,7 +26,11 @@ export default function Favorites() {
   if (favoriteArtPieces.length === 0)
     return (
       <>
-        <EmptyList>Use your ❤️ to fill the list</EmptyList>
+        <EmptyList>
+          No favorites selected yet.
+          <br />
+          Use your ❤️ to fill the list
+        </EmptyList>
       </>
     );
 

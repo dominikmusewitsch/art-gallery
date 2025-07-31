@@ -27,7 +27,7 @@ export default function DetailView({ artPiece }) {
 
   return (
     <>
-      <ArtContainer style={{ position: "relative" }}>
+      <ArtContainer>
         <FavoriteButton slug={artPiece.slug} />
         <Image
           src={artPiece.imageSource}
@@ -56,6 +56,7 @@ export default function DetailView({ artPiece }) {
 }
 
 const ArtContainer = styled.article`
+  position: relative;
   max-width: 600px;
   margin: 0 auto 40px auto;
   text-align: center;

@@ -24,18 +24,17 @@ export default function Spotlight() {
   const randomArt = getRandomArtPiece();
   return (
     <ArtContainer key={randomArt.name}>
-      <div style={{ position: "relative" }}>
+      <ImageWrapper>
         <FavoriteButton slug={randomArt.slug} />
         <Link href={`/gallery/${randomArt.slug}`}>
-          <Image
+          <StyledImage
             src={randomArt.imageSource}
             alt={randomArt.name}
             width={300}
             height={0}
-            style={{ height: "auto", width: "100%", objectFit: "contain" }}
           />
         </Link>
-      </div>
+      </ImageWrapper>
       <ArtistName>by {randomArt.artist}</ArtistName>
     </ArtContainer>
   );
@@ -50,4 +49,13 @@ const ArtContainer = styled.article`
 
 const ArtistName = styled.p`
   margin-top: 24px;
+`;
+const ImageWrapper = styled.div`
+  position: relative;
+`;
+
+const StyledImage = styled(Image)`
+  height: auto;
+  width: 100%;
+  object-fit: contain;
 `;

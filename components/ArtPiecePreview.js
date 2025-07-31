@@ -7,18 +7,17 @@ export default function ArtPiecePreview({ artPiece }) {
   console.log(artPiece);
   return (
     <ArtContainer key={artPiece.name} data-testid="art-piece-preview">
-      <div style={{ position: "relative" }}>
+      <ImageWrapper>
         <FavoriteButton slug={artPiece.slug} />
         <Link href={`/gallery/${artPiece.slug}`}>
-          <Image
+          <StyledImage
             src={artPiece.imageSource}
             alt={artPiece.name}
             width={300}
             height={0}
-            style={{ height: "auto", width: "100%", objectFit: "contain" }}
           />
         </Link>
-      </div>
+      </ImageWrapper>
       <ArtTitle>{artPiece.name}</ArtTitle>
       <ArtistName>by {artPiece.artist}</ArtistName>
     </ArtContainer>
@@ -39,4 +38,13 @@ const ArtTitle = styled.h2`
 
 const ArtistName = styled.p`
   margin-top: 0;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+`;
+const StyledImage = styled(Image)`
+  height: auto;
+  width: 100%;
+  object-fit: contain;
 `;

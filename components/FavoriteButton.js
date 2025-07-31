@@ -24,17 +24,14 @@ export default function FavoriteButton({ slug }) {
   }
 
   return (
-    <HerzButton
-      type="button"
-      onClick={handleToggleLike}
-      style={{ position: "absolute" }}
-    >
+    <HerzButton type="button" onClick={handleToggleLike}>
       {isLike === false ? "🩶" : "❤️"}
     </HerzButton>
   );
 }
 
 const HerzButton = styled.button`
+  position: absolute;
   font-size: 1.25rem;
   border-style: none;
   width: 2em;

@@ -6,13 +6,13 @@ export default function ColorPalette({ artPiece }) {
   return (
     <ListWrapper>
       {artPiece.colors.map((color, index) => (
-        <li key={index} style={{ flex: 1 }}>
+        <ListItem key={index}>
           <ColorBlock
             style={{
               background: color,
             }}
           ></ColorBlock>
-        </li>
+        </ListItem>
       ))}
     </ListWrapper>
   );
@@ -31,4 +31,8 @@ const ListWrapper = styled.ul`
 const ColorBlock = styled.div`
   width: 100%;
   height: 20px;
+`;
+
+const ListItem = styled.li`
+  flex: 1;
 `;
